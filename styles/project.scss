@@ -1,0 +1,181 @@
+// Vars
+// Colors
+$pink: hsl(6, 100%, 80%);
+$brilliant-pink: hsl(335, 100%, 65%);
+$gradient: hsl(6, 100%, 80%), hsl(335, 100%, 65%);
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+// Length Unities
+$border-radius: 10px;
+$padding: 40px;
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: $very-dark-blue;
+    background-image: url(../../images/bg-desktop.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    min-height: 100vh;
+}
+
+.fylo {
+    &-wrapper {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-cards {
+            display: flex;
+            align-items: end;
+        }
+    }
+
+    &-card {
+        background-color: $dark-blue;
+        border-radius: $border-radius;
+        padding: $padding;
+        border-top-right-radius: 100px;
+        padding-right: 120px;
+        margin-right: 25px;
+
+        & > img {
+            margin-bottom: 30px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-right: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: calc(#{$border-radius} / 2);
+                width: 45px;
+                height: 45px;
+                background-color: $very-dark-blue;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &-storage {
+        &-card {
+            position: relative;
+            padding: $padding;
+            padding-bottom: calc(#{$padding} * 1.5);
+            border-radius: $border-radius;
+            background-color: $dark-blue;
+        }
+
+        &-indicator-left {
+            position: absolute;
+            box-sizing: border-box;
+            width: 170px;
+            top: calc(0px - 33px);
+            right: $padding;
+            border-radius: $border-radius;
+            border-bottom-right-radius: 0;
+            background-color: #fff;
+            font-weight: 700;
+            color: $grayish-blue;
+            padding: calc(#{$padding} / 2.5);
+            text-align: center;
+
+            &:after {
+                content: '';
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                bottom: -15px;
+                right: 0;
+                border: 30px solid transparent;
+                border-right-color: #fff;
+                box-sizing: border-box;
+            }
+
+            span {
+                color: $very-dark-blue;
+                font-size: 35px;
+                vertical-align: middle;
+                line-height: 1;
+            }
+        }
+
+        &-bar {
+            padding: 1px;
+            width: 445px;
+            height: 13px;
+            border-radius: $border-radius;
+            background-color: $very-dark-blue;
+            position: relative;
+
+            &-info {
+                color: $pale-blue;
+            }
+
+            &-inner {
+                width: 13px;
+                height: calc(100% - 2px);
+                background: $pink;
+                background: -webkit-linear-gradient(to right, #{$gradient});
+                background: linear-gradient(to right, #{$gradient});
+                position: absolute;
+                border-radius: $border-radius;
+                transition: .25s all ease;
+                
+                &:after {
+                    content: '';
+                    width: $border-radius;
+                    height: $border-radius;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    position: absolute;
+                    right: 2px;
+                    top: 1px;
+                }
+            }
+
+            &-indicator {
+                position: absolute;
+                top: calc(100% + 10px);
+                color: $pale-blue;
+                font-weight: 700;
+
+                &--final {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+.attribution {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: $pale-blue;
+
+    a {
+        color: $pink;
+
+        &:hover,
+        &:active {
+            color: $brilliant-pink;
+        }
+    }
+}
